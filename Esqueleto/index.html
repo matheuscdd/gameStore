@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://matheuscdd.github.io/coding/CSS_reset.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <!-- <link href="styleUseless.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://i.postimg.cc/ZnCrf0GQ/game.png" rel="shortcut icon" type="image/x-icon"> <!--<a href="https://www.flaticon.com/free-icons/game" title="game icons">Game icons created by sonnycandra - Flaticon</a>-->
+    <title>Enigma GameStore</title>
+</head>
+<body>
+    <header>
+        <h1>Enigma GameStore</h1>
+        <nav>
+            <ul class="listaNav">
+                <li><a>Todos</a></li>
+                <li><a>PlayStation</a></li>
+                <li><a>Switch</a></li>
+                <li><a>Xbox</a></li>
+                <li><a>PC</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <ul class="listaItens">
+                <li class="card">
+                    <picture class="listPhoto">
+                        <img class="imgPRoduto" src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_SL1000_.jpg">
+                    </picture>
+                    <span class="tagCategoria">PC</span>
+                    <h3 class="gameTitle">The Last of Us</h3>
+                    <small class="gameDescription" title="Cinco anos depois da jornada perigosa pelos Estados Unidos pós-pandêmicos, Ellie e Joel se estabelecem em Jackson, Wyoming">Cinco anos depois da jornada perigosa pelos Estados Unidos pós-pandêmicos, Ellie e Joel se estabelecem em Jackson, Wyoming</small>
+                    <h4 class="gamePrice">R$ 100,00</h4>
+                    <legend onclick="add()" class="adicionar">Adicionar ao carrinho</legend>
+                </li>
+                
+            </ul>
+        </section>
+        <aside class="barraLateral">
+            <div class="spaceSearch">
+                <input type="search" placeholder="Digite aqui a sua pesquisa" id="search">
+                <button class="buttonSearch" onclick="pesquisar()">Pesquisar</button>
+            </div>
+            <div class="carrinho">
+                <h4 class="carrinhoTitle">Carrinho de compras</h4>
+                <!-- <div class="carEmpty">
+                    <h2>Carrinho vazio</h2>
+                    <small>Adicione itens</small>
+                </div> -->
+                <div class="carFull">
+                    <ul class="carList">
+                        <li class="carItem">
+                            <picture class="carPhoto">
+                                <img class="carImagem" src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_SL1000_.jpg" alt="Imagem de uma garota raivosa">
+                            </picture>
+                            <div>
+                                <h4 class="carTitleItem">The Last of Us</h4>
+                                <h4 class="carGamePrice">R$ 100,00</h4>
+                                <span class="remove" onclick="remover()">Remover produto</span>
+                            </div>
+                            
+                        </li>
+                        <li class="carItem">
+                            <picture class="carPhoto">
+                                <img class="carImagem" src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_SL1000_.jpg" alt="Imagem de uma garota raivosa">
+                            </picture>
+                            <div>
+                                <h4 class="carTitleItem">The Last of Us</h4>
+                                <h4 class="carGamePrice">R$ 100,00</h4>
+                                <span class="remove" onclick="remover()">Remover produto</span>
+                            </div>
+                            
+                        </li>
+                        <li class="carItem">
+                            <picture class="carPhoto">
+                                <img class="carImagem" src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_SL1000_.jpg" alt="Imagem de uma garota raivosa">
+                            </picture>
+                            <div>
+                                <h4 class="carTitleItem">The Last of Us</h4>
+                                <h4 class="carGamePrice">R$ 100,00</h4>
+                                <span class="remove" onclick="remover()">Remover produto</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="carSituation">
+                        <div class="quantos">
+                            <h4 class="quant">Quantidade:</h4>
+                            <p class="quantNum">3</p>
+                        </div>
+                        <div class="quantos">
+                            <h4 class="quant">Total:</h4>
+                            <p class="priceFinal">R$ 300,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </aside>
+    </main>
+    <script src="gamesList.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

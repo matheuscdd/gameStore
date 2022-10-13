@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://matheuscdd.github.io/coding/CSS_reset.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- <link href="styleUseless.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://i.postimg.cc/ZnCrf0GQ/game.png" rel="shortcut icon" type="image/x-icon"> <!--<a href="https://www.flaticon.com/free-icons/game" title="game icons">Game icons created by sonnycandra - Flaticon</a>-->
+    <title>Enigma GameStore</title>
+</head>
+<body>
+    <header>
+        <section class="conterHeader">
+            <h1>Enigma GameStore</h1>
+            <nav>
+                <ul class="listaNav">
+                    <li><a onclick="todos()" class="categoryButton">Todos</a></li>
+                    <li><a onclick="playStation()" class="categoryButton">PlayStation</a></li>
+                    <li><a onclick="nintendo()" class="categoryButton">Switch</a></li>
+                    <li><a onclick="xBox()" class="categoryButton">Xbox</a></li>
+                    <li><a onclick="personalComputer()" class="categoryButton">PC</a></li>
+                    <li><a class="singIn">&nbsp;</a></li>
+                    <button class="bot log" onclick="login()">Login</button>
+                    <button class="bot fechar displayNone">X</button>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main>
+        <section class="marketplace">
+            <ul class="listaItens"></ul>
+            <ul class="ulsecreto displayNone"></ul>
+        </section>
+        <aside class="barraLateral">
+            <div class="spaceSearch">
+                <input type="search" placeholder="Digite aqui a sua pesquisa" id="search" onkeypress="procurar()">
+                <button class="buttonSearch bot" onclick="procurar()">Pesquisar</button>
+            </div>
+            <div class="carrinho" onmouseenter="focado()" onmouseleave="desfocado()">
+            </div>
+        </aside>
+       </section> 
+       <section class="pedidoEnvio displayNone">
+        <h2 class="titleEnvio">Informações para envio</h2>
+        <form class="pedidoInputs">
+            <input type="text" class="inputEnvio" id="nomeInput" placeholder="Nome">
+            <input type="tel" class="inputEnvio" id="telefone" name="telefone" placeholder="Telefone">
+            <input type="text" class="inputEnvio" id="cep" name="cep" placeholder="CEP">
+            <input type="text" class="inputEnvio" id="estado" name="estado" placeholder="Estado">
+            <input type="text" class="inputEnvio" id="cidade" name="cidade" placeholder="Cidade">
+            <input type="text" class="inputEnvio" id="bairro" name="bairro" placeholder="Bairro">
+            <input type="text" class="inputEnvio" id="rua" name="rua" placeholder="Rua">
+            <input type="text" class="inputEnvio" id="numberCasa" name="numberCasa" placeholder="Número">
+            <input type="text" class="inputEnvio" id="complemento" name="complemento" placeholder="Complemento">
+        </form>
+        <h2 class="titleEnvio">Pagamento</h2>
+        <div class="payment">
+            <form>
+                <select name="Escolher forma de pagamento" class="selection" onclick="selecionar()">
+                    <option value="" id="devoSumir">Selecionar forma de pagamento</option>
+                    <option value="1x" id="x1"></option>
+                    <option value="2x" id="x2"></option>
+                    <option value="4x" id="x4"></option>
+                    <option value="6x" id="x6"></option>
+                    <option value="8x" id="x8"></option>
+                    <option value="12x" id="x12"></option>
+                </select>
+                    <input type="text" class="inputEnvio" id="nomeCartao" placeholder="Nome impresso no cartão">
+                    <input type="password" class="inputEnvio" id="numCartao" name="numCartao" placeholder="Número do cartão" maxlength="16">
+                    <input type="text" class="inputEnvio" id="vencCartao" name="vencCartao" placeholder="Vencimento do cartão">
+                    <input type="password" class="inputEnvio" id="csCartao" name="csCartao" placeholder="Código de segurança" maxlength="3">
+            </form>
+            <img class="creditImg" src="img/credit-cards.png">
+        </div>
+        <button class="buttonSend bot" onclick="send()">Confirmar pagamento</button>
+       </section>
+       <section class="acesso displayNone">
+        <h2 class="titleEnvio">Login</h2>
+        <div class="pedidoInputs">
+            <input type="text" id="user" name="user" class="inputLogin" placeholder="Usuário">
+            <input type="password" id="senha" name="senha" class="inputLogin" placeholder="Senha">
+            <button class="bot buttonLogin" onclick="sing()">Entrar</button>
+        </div>
+    </section>
+    <section class="report displayNone">
+        <ul class="relatorio">
+            <li class="pos">
+                <h2 class="titleReport">Total gerado</h2>
+                <code id="totalGerado"></code>
+            </li>
+            <li class="pos">
+                <h2 class="titleReport" id="tituloPaiGame">Jogos mais vendidos</h2>
+                <div id="paiDoGame">
+                    <canvas id="gameMostSold" width="600" height="400"></canvas>
+                </div>
+                <code class="displayNone" id="erroFaltaMaisVendidos">Não foram encontrados jogos suficientes para essa análise</code>
+            </li>
+            <li class="pos">
+                <h2 class="titleReport" id="tituloPaiPlat">Plataforma que mais vende</h2>
+                <div id="paiDaPlat">
+                    <canvas id="plataformMostSold" width="600" height="400"></canvas>
+                </div>
+            </li>
+            <li class="pos">
+                <h2 class="titleReport">Total gerado pelo jogo mais vendido</h2>
+                <code id="jogoMaisVendidoTotal"></code>
+            </li>
+            <li class="pos">
+                <h2 class="titleReport">Total gerado pela plataforma que mais vendeu</h2>
+                <code id="plataformaMaisVendeu"></code>
+            </li>
+            <li class="pos">
+                <h2 class="titleReport">Total de pedidos</h2>
+                <code id="somaPedidos"></code>
+            </li>
+            <li class="pos">
+                <h2 class="titleReport" id="listReport">Lista de jogos vendidos</h2>
+                <table>
+                    <tr>
+                        <td class="thR th">Nome do Jogo</td>
+                        <td class="meio th">Preço Unitário</td>
+                        <td class="meio th">Cópias vendidas</td>
+                        <td class="thL th">Total Gerado</td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+        <button onclick="showConsole()" class="print">Imprimir pedidos</button>
+    </section>
+    </main>
+    <!--Referência https://codepen.io/hriike/pen/PVVGVQ-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+    <script src="js/gamesList.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/reportSales.js"></script>
+</body>
+</html>
